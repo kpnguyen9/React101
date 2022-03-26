@@ -1,23 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Greeter from "./components/Greeter";
+import nameArray from "./data.js";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1 className="greeting">Hello, this is React</h1>
+      {nameArray.map((n) => (
+        <Greeter name={n.name} age={n.age} />
+      ))}
+
+      {/* Use this following format that puts everything in curley brackets and adds return for when you want to input more than one component */}
+      {nameArray.map((n) => {
+        return <Greeter name={n.name} age={n.age} />;
+      })}
     </div>
   );
 }
